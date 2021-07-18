@@ -20,24 +20,26 @@ def USDtoIDR(nominal):
     url    = f"https://www.google.com/search?q={nominal}+dollar+ke+rupiah"
     req    = requests.get( url )
     soup   = bs4.BeautifulSoup( req.text, "html.parser" )
-
     result = soup.find('div', class_='BNeawe').text
+
     print(f"\n{nominal} Dolar Amerika Serikat sama dengan {result}")
     pass
+
 def IDRtoUSD(nominal):
     url    = f"https://www.google.com/search?q={nominal}+idr+ke+usd"
     req    = requests.get( url )
     soup   = bs4.BeautifulSoup( req.text, "html.parser" )
-
     result = soup.find('div', class_='BNeawe').text
+
     print(f"\n{nominal} Rupiah Indonesia sama dengan {result}")
     pass
+    
 def fromToCurrency(nominal, fromCurrency, toCurrency):
     url    = f"https://www.google.com/search?q={nominal}+{fromCurrency}+ke+{toCurrency}"
     req    = requests.get( url )
     soup   = bs4.BeautifulSoup( req.text, "html.parser" )
-
     result = soup.find('div', class_='BNeawe').text
+
     print(f"\n{nominal} {fromCurrency} sama dengan {result}")
     pass
 
